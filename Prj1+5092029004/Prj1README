@@ -1,0 +1,12 @@
+Attachments:
+1. copy.c: source code for problem1
+2. shell.c: source code for problem2
+3. single.c: source code for problem3
+4. multi.c: source code for problem3
+5. makefile: makes the executables
+6. test: show the program works for all possible inputs
+7. Performance Analysis.pdf: show the performance analysis
+8. copy.ods: problem 1 performance benchmark data
+9. multi.ods: problem 3 performance benchmark data
+10. multi-benchmark.sh: bash script for problem 3 benchmarking
+

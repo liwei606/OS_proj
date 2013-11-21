@@ -1,0 +1,112 @@
+Problem 1 (copy)
+=================
+
+$ ./copy
+Usage: ./copy <infile> <outfile> <bufsize>
+$ ./copy Sherlock.rmvb dest.rmvb 1000
+in=Sherlock.rmvb,out=dest.rmvb,bufsize=1000
+child exits: total=371820599
+parent exits: total=371820599
+$ echo $?
+0
+$ diff Sherlock.rmvb dest.rmvb 
+$ echo $?
+0
+
+
+Problem 2 (shell)
+==================
+
+Server-side
+------------
+$ ./shell 
+Invalid arguments.
+$ ./shell eee
+Invalid port number.
+$ ./shell 1234
+New child process (seq=1)
+
+Client-side
+------------
+$ telnet localhost 1234
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Welcome to my shell!
+/home/liwei/cpp/OperatingSystem/proj1$ ls
+copy
+copy.c
+Makefile
+multi.c
+shell.c
+single.c
+...
+/home/liwei/cpp/OperatingSystem/proj1$ ls -l | wc
+  32  252 2011
+/home/liwei/cpp/OperatingSystem/proj1$ ls -l | wc | wc | wc 
+  33  254 2011
+/home/liwei/cpp/OperatingSystem/proj1$ eee
+Error calling execvp() return value is -1
+/home/liwei/cpp/OperatingSystem/proj1$ exit
+exit
+Connection closed by foreign host.
+
+
+Problem 3 (single)
+===================
+
+$ ./single
+Failed to open data.in
+$ cp sample/sample_data.in data.in
+$ ./single
+$ diff data.out sample/sample_data.out 
+$ cat > data.in
+notint   
+$ ./single 
+Failed to read n
+$ cat > data.in
+100
+1 2 3
+$ ./single
+Failed to read a[0][3]
+
+
+Problem 3 (multi)
+==================
+
+$ ./multi
+Failed to open data.in
+$ cp sample/sample_data.in data.in
+$ ./multi
+$ diff data.out sample/sample_data.out 
+$ cat > data.in
+notint   
+$ ./multi 
+Failed to read n
+$ cat > data.in
+100
+1 2 3
+$ ./multi
+Failed to read a[0][3]
+$ ./multi 128
+Usage: ./multi [<Size> <OutputFile> [<NThread>]]
+$ echo $?
+1
+$ ./multi 128 multi.out
+$ echo $?
+0
+$ ./multi 128 multi.out 4
+$ echo $?
+0
+$ head multi.out
+128
+0 0 3
+0 1 6
+0 2 7
+0 3 5
+0 4 3
+0 5 5
+0 6 6
+0 7 2
+0 8 9
+

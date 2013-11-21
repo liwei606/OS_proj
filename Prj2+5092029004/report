@@ -1,0 +1,12 @@
+Report for project 2
+**********************************************************************
+1. In this project, my program implement the concurrency of three kinds of threads: immigrant, spectator and judge with the use of semaphores to meet the requirement of constraints.
+
+2. The program run in an infinite loop without starvation.
+
+3. The program can exit gracefully.
+
+4. About the starvation of the program:
+According to the description of the project, there will be one starvation if the judge enters before any of the immigrants enter.
+My solution to the problem is add a semapore imm_enter such that if no immgrant has entered, the judge cannot enter. Additionally, the semaphore imm_enter should be decreased when the immigrant leave.
+

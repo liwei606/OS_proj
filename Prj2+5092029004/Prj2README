@@ -1,0 +1,15 @@
+Prj2README
+*********************************************************
+1.faneuil.c
+The source code for this program
+
+2.TestResut
+Four test results ran in my computer
+
+3.report
+The description of this program with starvation analysis in it
+
+4.Makefile
+The makefile makes the executables out of any of the source code
+
+
